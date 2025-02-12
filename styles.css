@@ -1,0 +1,246 @@
+:root {
+    --gold: #C5A572;
+    --deep-blue: #1B365D;
+    --cream: #F5F1E9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.circle-border {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+     /* Slight tilt to the entire composition */
+}
+
+/* Common shiny ring style */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* Outermost ring - thinnest and lightest */
+.circle-border::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: 
+        linear-gradient(var(--angle), 
+            rgba(212, 185, 130, 0.1),
+            rgba(212, 185, 130, 0.4),
+            rgba(255, 236, 196, 0.6),
+            rgba(212, 185, 130, 0.4),
+            rgba(212, 185, 130, 0.1)
+        ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: rotate(-12deg) translate(2px, -1px);
+    animation: rotate 8s linear infinite;
+}
+
+/* Second ring - medium thickness */
+.circle-border::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    background: 
+        linear-gradient(var(--angle), 
+            rgba(212, 185, 130, 0.3),
+            rgba(255, 236, 196, 0.8),
+            rgba(212, 185, 130, 0.5),
+            rgba(255, 236, 196, 0.8),
+            rgba(212, 185, 130, 0.3)
+        ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: rotate(8deg) translate(-1px, 2px);
+    animation: rotate 12s linear infinite reverse;
+}
+
+/* Third ring - thickest */
+.circle-border .content::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    border: 7px solid transparent;
+    background: 
+        linear-gradient(var(--angle), 
+            rgba(212, 185, 130, 0.2),
+            rgba(255, 236, 196, 0.7),
+            rgba(212, 185, 130, 0.4),
+            rgba(255, 236, 196, 0.7),
+            rgba(212, 185, 130, 0.2)
+        ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: rotate(-5deg) translate(1px, -1px);
+    animation: rotate 10s linear infinite;
+}
+
+/* Inner ring - medium thickness */
+.circle-border .content::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 15px;
+    bottom: 12px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: 
+        linear-gradient(var(--angle), 
+            rgba(212, 185, 130, 0.1),
+            rgba(255, 236, 196, 0.5),
+            rgba(212, 185, 130, 0.3),
+            rgba(255, 236, 196, 0.5),
+            rgba(212, 185, 130, 0.1)
+        ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: rotate(15deg) translate(-2px, 1px);
+    animation: rotate 15s linear infinite reverse;
+}
+
+/* Additional inner decorative rings using box-shadow */
+.circle-border .content {
+    &::before {
+        box-shadow: 
+            /* Subtle inner glow */
+            inset 0 0 0 1.5px rgba(212, 185, 130, 0.3),
+            /* Additional ring */
+            inset 0 0 0 3px rgba(212, 185, 130, 0.2);
+    }
+}
+
+/* Ensure content stays above rings */
+.content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 2rem;
+}
+
+.logo h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--deep-blue);
+    margin: 0;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+    margin-left: 0.15em;
+}
+
+.logo h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: var(--deep-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin: 1rem 0;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.logo h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--deep-blue);
+    margin: 1.5rem 0;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    opacity: 0.9;
+}
+
+.dates {
+    margin: 2rem 0;
+}
+
+.dates p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--deep-blue);
+    margin: 0.5rem 0;
+}
+
+.dates .hebrew-date {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    font-family: 'Frank Ruhl Libre', serif;  /* Better for Hebrew text */
+}
+
+.stay-tuned p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+    .circle-border {
+        width: 300px;
+        height: 300px;
+    }
+
+    .logo h1 {
+        font-size: 3rem;
+    }
+
+    .logo h2 {
+        font-size: 0.8rem;
+    }
+
+    .dates p {
+        font-size: 1.2rem;
+    }
+} 
