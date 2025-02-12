@@ -227,20 +227,95 @@ body {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
     .circle-border {
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
+    }
+
+    /* Scale all rings proportionally */
+    .circle-border::before {
+        border-width: 0.8px;
+        transform: rotate(-12deg) translate(1.6px, -0.8px); /* Scale down from 2px, -1px */
+    }
+
+    .circle-border::after {
+        border-width: 4px;
+        transform: rotate(8deg) translate(-0.8px, 1.6px); /* Scale down from -1px, 2px */
+    }
+
+    .circle-border .content::before {
+        border-width: 5.6px;
+        transform: rotate(-5deg) translate(0.8px, -0.8px); /* Scale down from 1px, -1px */
+    }
+
+    .circle-border .content::after {
+        border-width: 1.6px;
+        transform: rotate(15deg) translate(-1.6px, 0.8px); /* Scale down from -2px, 1px */
+    }
+
+    /* Keep all other proportions the same */
+    .circle-border::before,
+    .circle-border::after,
+    .circle-border .content::before,
+    .circle-border .content::after {
+        background-size: 80%; /* Scale down gradients */
+    }
+
+    /* Rest of mobile styles remain the same */
+    .content {
+        padding: 1.5rem;
     }
 
     .logo h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .logo h2 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .dates p {
         font-size: 1.2rem;
     }
+
+    .dates .hebrew-date {
+        font-size: 1.1rem;
+    }
+
+    .stay-tuned p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 360px) {
+    .circle-border {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* Landscape mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .circle-border {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+/* Add support for larger phones and small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .circle-border {
+        width: 360px;
+        height: 360px;
+    }
+
+    .logo h1 {
+        font-size: 4rem;
+    }
+} 
 } 
