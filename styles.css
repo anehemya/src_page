@@ -13,7 +13,7 @@ body {
     align-items: center;
     background-color: var(--cream);
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow: hidden; /* Prevent any overflow */
 }
 
 .container {
@@ -24,14 +24,17 @@ body {
     min-height: 100vh;
     width: 100%;
     margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .circle-border {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: min(500px, 90vw);
+    height: 0;
+    padding-bottom: min(500px, 90vw);
     margin: auto;
-     /* Slight tilt to the entire composition */
+    transform-origin: center center;
 }
 
 /* Common shiny ring style */
@@ -47,111 +50,71 @@ body {
     }
 }
 
-/* Outermost ring - thinnest and lightest */
-.circle-border::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    background: 
-        linear-gradient(var(--angle), 
-            rgba(212, 185, 130, 0.1),
-            rgba(212, 185, 130, 0.4),
-            rgba(255, 236, 196, 0.6),
-            rgba(212, 185, 130, 0.4),
-            rgba(212, 185, 130, 0.1)
-        ) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    transform: rotate(-12deg) translate(2px, -1px);
-    animation: rotate 8s linear infinite;
-}
-
-/* Second ring - medium thickness */
-.circle-border::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background: 
-        linear-gradient(var(--angle), 
-            rgba(212, 185, 130, 0.3),
-            rgba(255, 236, 196, 0.8),
-            rgba(212, 185, 130, 0.5),
-            rgba(255, 236, 196, 0.8),
-            rgba(212, 185, 130, 0.3)
-        ) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    transform: rotate(8deg) translate(-1px, 2px);
-    animation: rotate 12s linear infinite reverse;
-}
-
-/* Third ring - thickest */
-.circle-border .content::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    right: 2px;
-    bottom: 2px;
-    border-radius: 50%;
-    border: 7px solid transparent;
-    background: 
-        linear-gradient(var(--angle), 
-            rgba(212, 185, 130, 0.2),
-            rgba(255, 236, 196, 0.7),
-            rgba(212, 185, 130, 0.4),
-            rgba(255, 236, 196, 0.7),
-            rgba(212, 185, 130, 0.2)
-        ) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    transform: rotate(-5deg) translate(1px, -1px);
-    animation: rotate 10s linear infinite;
-}
-
-/* Inner ring - medium thickness */
+/* All rings should use consistent positioning */
+.circle-border::before,
+.circle-border::after,
+.circle-border .content::before,
 .circle-border .content::after {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 15px;
-    bottom: 12px;
+    inset: 0;  /* This replaces top/right/bottom/left */
     border-radius: 50%;
-    border: 2px solid transparent;
-    background: 
-        linear-gradient(var(--angle), 
-            rgba(212, 185, 130, 0.1),
-            rgba(255, 236, 196, 0.5),
-            rgba(212, 185, 130, 0.3),
-            rgba(255, 236, 196, 0.5),
-            rgba(212, 185, 130, 0.1)
-        ) border-box;
     -webkit-mask: 
         linear-gradient(#fff 0 0) padding-box, 
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    transform: rotate(15deg) translate(-2px, 1px);
+}
+
+.circle-border::before {
+    transform: rotate(-12deg) scale(1.04);  /* Instead of using margins/padding */
+    border: 1px solid transparent;
+    background: linear-gradient(var(--angle), 
+        rgba(212, 185, 130, 0.1),
+        rgba(212, 185, 130, 0.4),
+        rgba(255, 236, 196, 0.6),
+        rgba(212, 185, 130, 0.4),
+        rgba(212, 185, 130, 0.1)
+    ) border-box;
+    animation: rotate 8s linear infinite;
+}
+
+.circle-border::after {
+    transform: rotate(8deg) scale(1.02);
+    border: 5px solid transparent;
+    background: linear-gradient(var(--angle), 
+        rgba(212, 185, 130, 0.3),
+        rgba(255, 236, 196, 0.8),
+        rgba(212, 185, 130, 0.5),
+        rgba(255, 236, 196, 0.8),
+        rgba(212, 185, 130, 0.3)
+    ) border-box;
+    animation: rotate 12s linear infinite reverse;
+}
+
+.circle-border .content::before {
+    transform: rotate(-5deg) scale(0.98);
+    border: 7px solid transparent;
+    background: linear-gradient(var(--angle), 
+        rgba(212, 185, 130, 0.2),
+        rgba(255, 236, 196, 0.7),
+        rgba(212, 185, 130, 0.4),
+        rgba(255, 236, 196, 0.7),
+        rgba(212, 185, 130, 0.2)
+    ) border-box;
+    animation: rotate 10s linear infinite;
+}
+
+.circle-border .content::after {
+    transform: rotate(15deg) scale(0.96);
+    border: 2px solid transparent;
+    background: linear-gradient(var(--angle), 
+        rgba(212, 185, 130, 0.1),
+        rgba(255, 236, 196, 0.5),
+        rgba(212, 185, 130, 0.3),
+        rgba(255, 236, 196, 0.5),
+        rgba(212, 185, 130, 0.1)
+    ) border-box;
     animation: rotate 15s linear infinite reverse;
 }
 
@@ -168,11 +131,19 @@ body {
 
 /* Ensure content stays above rings */
 .content {
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .logo h1 {
@@ -234,62 +205,45 @@ body {
 
 /* Base mobile styles */
 @media (max-width: 480px) {
-    .container {
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .circle-border {
-        width: 400px;
-        height: 400px;
-        transform: scale(0.8);
-        transform-origin: center center;
-        margin: 0;
-    }
-
-    /* Keep all other styles from desktop */
     .logo h1 {
-        font-size: 4rem;
+        font-size: min(4rem, 15vw);
     }
-
+    
     .logo h2 {
-        font-size: 0.75rem;
+        font-size: min(0.75rem, 3vw);
+        margin: 0.5rem 0;
     }
-
+    
+    .logo h3 {
+        font-size: min(1.2rem, 4vw);
+        margin: 1rem 0;
+    }
+    
+    .dates {
+        margin: 1rem 0;
+    }
+    
     .dates p {
-        font-size: 1.2rem;
+        font-size: min(1.3rem, 5vw);
     }
-
+    
     .dates .hebrew-date {
-        font-size: 1.1rem;
+        font-size: min(1.1rem, 4vw);
     }
-
+    
     .stay-tuned p {
-        font-size: 0.9rem;
+        font-size: min(0.9rem, 3.5vw);
+        margin-top: 1rem;
     }
 }
 
-/* Smaller screens */
 @media (max-width: 360px) {
-    .circle-border {
-        transform: scale(0.7);
+    .content {
+        padding: 1.5rem;
     }
-}
-
-/* Very small screens */
-@media (max-width: 320px) {
-    .circle-border {
-        transform: scale(0.65);
-    }
-}
-
-/* Extremely small screens */
-@media (max-width: 280px) {
-    .container {
-        transform: scale(0.55);
+    
+    .dates {
+        margin: 0.75rem 0;
     }
 }
 
