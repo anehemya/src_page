@@ -13,6 +13,15 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
+    /* Add background image with overlay */
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
+    ), url('andalusian_pattern.jpg');
+    background-size: 25% auto;
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 .container {
