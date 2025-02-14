@@ -19,9 +19,9 @@ body {
         rgba(255, 255, 255, 0.90),
         rgba(255, 255, 255, 0.90)
     ), url('moroccan_arch.jpg');
-    background-size: 1000px ;  /* Set fixed size instead of percentage */
+    background-size: 1000px;
     background-position: center 100%;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
     overflow-y: hidden;
 }
 
@@ -213,6 +213,13 @@ body {
 
     .stay-tuned p {
         margin: 0.2rem 0;
+    }
+
+    body {
+        background-attachment: scroll;
+        -webkit-background-size: 1000px;
+        background-size: 1000px;
+        background-repeat: no-repeat;
     }
 }
 
