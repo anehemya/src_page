@@ -4,22 +4,11 @@
     --cream: #F5F1E9;
 }
 
-html {
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-}
-
 body {
     margin: 0;
     padding: 0;
+    
     height: 100vh;
-    /* Prevent overscroll bounce */
-    position: fixed;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -30,17 +19,10 @@ body {
         rgba(255, 255, 255, 0.90),
         rgba(255, 255, 255, 0.90)
     ), url('moroccan_arch.jpg');
-    background-size: 1000px;
+    background-size: 1000px ;  /* Set fixed size instead of percentage */
     background-position: center 100%;
-    /* Remove fixed attachment for mobile compatibility */
-    background-repeat: no-repeat;
-}
-
-/* For iOS Safari specifically */
-@supports (-webkit-touch-callout: none) {
-    body {
-        height: -webkit-fill-available;
-    }
+    background-attachment: fixed;
+    overflow-y: hidden;
 }
 
 .container {
@@ -173,7 +155,23 @@ body {
 /* Responsive Design */
 @media (max-width: 300px) {
     body {
-        height: 90vh;  /* Only change what needs to be different on mobile */
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        font-family: 'Montserrat', sans-serif;
+        background-color: #ffffff;
+        /* Add background image with overlay */
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.90),
+            rgba(255, 255, 255, 0.90)
+        ), url('moroccan_arch.jpg');
+        background-size: 1000px ;  /* Set fixed size instead of percentage */
+        background-position: center 100%;
+        background-attachment: fixed;
+        overflow-y: hidden;
     }
 }
 
@@ -215,12 +213,6 @@ body {
 
     .stay-tuned p {
         margin: 0.2rem 0;
-    }
-
-    body {
-        background-attachment: scroll;  /* Change from fixed to scroll for mobile */
-        -webkit-background-size: 1000px;  /* Explicit webkit prefix */
-        background-size: 1000px;
     }
 }
 
