@@ -8,6 +8,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    min-height: -webkit-fill-available;  /* For iOS Safari */
+    height: 100vh;  /* Ensure body doesn't exceed viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +23,11 @@ body {
     background-size: 900px auto;  /* Set fixed size instead of percentage */
     background-position: center 100%;
     background-attachment: fixed;
+}
+
+/* Add this to handle iOS Safari viewport height */
+html {
+    height: -webkit-fill-available;
 }
 
 .container {
@@ -161,8 +168,8 @@ body {
 
 @media (max-width: 768px) {
     .logo-container {
-        width: 250px;
-        height: 250px;
+        width: 200px;  /* Reduced from 250px */
+        height: 200px;
     }
 
     .logo h1 {
@@ -174,29 +181,29 @@ body {
     }
 
     .container {
-        gap: 0.8rem;  /* Reduced from 1.5rem */
-        padding: 2rem 1.5rem 1.5rem;  /* Reduced top padding */
+        gap: 0.6rem;
+        padding: 1rem 1.5rem;  /* Reduced padding */
+        height: 100vh;  /* Make container fill viewport */
+        height: -webkit-fill-available;
+        justify-content: center;  /* Center content vertically */
     }
 
     .event-details {
-        gap: 0.6rem;  /* Reduced from 0.8rem */
-        margin-top: 0;
+        gap: 0.4rem;
     }
 
-    .dates p {
-        margin: 0.3rem 0;
-    }
-
-    .location {
-        margin: 0.3rem 0;
-    }
-
-    .stay-tuned {
-        margin-top: 0.5rem;
-    }
-
-    .stay-tuned p {
+    /* Reduce text sizes for mobile */
+    .dates p, .location, .stay-tuned p {
+        font-size: 1.1rem;
         margin: 0.2rem 0;
+    }
+
+    .hebrew-date {
+        font-size: 1.1rem;
+    }
+
+    .follow-up {
+        font-size: 0.9rem !important;
     }
 }
 
@@ -342,5 +349,16 @@ body {
 @media (min-width: 481px) and (max-width: 768px) {
     .container {
         transform: scale(0.9);
+    }
+}
+
+@media (max-height: 700px) {
+    .logo-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .container {
+        padding: 0.5rem 1rem;
     }
 } 
