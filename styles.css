@@ -15,12 +15,11 @@ body {
     background-color: #ffffff;
     /* Add background image with overlay */
     background-image: linear-gradient(
-        rgba(255, 255, 255, 0.85),
-        rgba(255, 255, 255, 0.85)
-    ), url('andalusian_pattern.jpg');
-    background-size: 25% auto;
-    background-position: center center;
-    background-repeat: repeat;
+        rgba(255, 255, 255, 0.90),
+        rgba(255, 255, 255, 0.90)
+    ), url('moroccan_arch.jpg');
+    background-size: 900px auto;  /* Set fixed size instead of percentage */
+    background-position: center 100%;
     background-attachment: fixed;
 }
 
@@ -68,24 +67,30 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     margin: 0;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.2em;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .logo h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     margin: 0.5rem 0;
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .logo h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     margin: 0.5rem 0;
-    font-weight: 300;
+    font-weight: 600;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Event Details Styles */
@@ -102,18 +107,27 @@ body {
 
 .dates p {
     margin: 0.5rem 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    font-weight: 800;
 }
 
 .hebrew-date {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     direction: rtl;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    font-weight: 800;
 }
 
 .location {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 0.5rem 0;
     font-family: 'Frank Ruhl Libre', serif;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    font-weight: 600;
 }
 
 .stay-tuned {
@@ -122,16 +136,29 @@ body {
 
 .stay-tuned p {
     margin: 0.3rem 0;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-family: 'Frank Ruhl Libre', serif;
+    color: var(--deep-blue);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    font-weight: 600;
 }
 
 .follow-up {
-    font-size: 0.9rem !important;
+    font-size: 1.0rem !important;
     opacity: 0.8;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Responsive Design */
+@media (max-width: 800px) {
+    body {
+        /* Background image stays same size, just gets cropped on smaller screens */
+        background-size: 800px auto;  /* Keep same fixed size */
+        background-position: center 80%;  /* Keep same position */
+    }
+}
+
 @media (max-width: 768px) {
     .logo-container {
         width: 250px;
