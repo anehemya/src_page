@@ -4,11 +4,22 @@
     --cream: #F5F1E9;
 }
 
+html {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
-    
     height: 100vh;
+    /* Prevent overscroll bounce */
+    position: fixed;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -22,7 +33,13 @@ body {
     background-size: 1000px ;  /* Set fixed size instead of percentage */
     background-position: center 100%;
     background-attachment: fixed;
-    overflow: hidden;  /* Add this to prevent scrolling */
+}
+
+/* For iOS Safari specifically */
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: -webkit-fill-available;
+    }
 }
 
 .container {
