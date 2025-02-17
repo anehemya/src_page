@@ -1,6 +1,7 @@
 :root {
-    --gold: #C5A572;
-    --deep-blue: #1B365D;
+    --gold: #D4B36B;  /* Lighter base gold */
+    --gold-shine: #E8D5A9;  /* Even lighter gold for shine effect */
+    --deep-blue: #000000;
     --cream: #F5F1E9;
 }
 
@@ -19,112 +20,188 @@ body {
         rgba(255, 255, 255, 0.90),
         rgba(255, 255, 255, 0.90)
     ), url('moroccan_arch.jpg');
-    background-size: 1000px;
+    background-size: 1000px ;  /* Set fixed size instead of percentage */
     background-position: center 100%;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-y: hidden;
 }
 
 .container {
     text-align: center;
-    padding: 3rem 2rem 2rem;  /* Reduced top padding from 4rem to 3rem */
+    padding: 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;  /* Reduced from 2rem to 1rem to bring content closer to logo */
+    gap: 4rem;
+    transform: scale(0.8);  /* Added to scale everything down to 80% */
 }
 
 /* Logo Styles */
 .logo-container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 240px;  /* Reduced from 300px */
+    height: 240px;  /* Reduced from 300px */
+    margin: 0 auto;
 }
 
 .circle-border {
     position: relative;
     width: 100%;
     height: 100%;
-    border: 2px solid #C5A572;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.circle-border::before {
-    content: '';
+.rings {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #C5A572;
+    width: 90%;  /* Reduced to contain rings better */
+    height: 90%;  /* Reduced to contain rings better */
+    left: 5%;    /* Center the rings container */
+    top: 5%;     /* Center the rings container */
+}
+
+.ring {
+    position: absolute;
+    border: 5px solid transparent;  /* Make border transparent for gradient */
     border-radius: 50%;
+    opacity: 1;
+    background: linear-gradient(
+        45deg,
+        var(--gold-shine) 0%,
+        var(--gold) 20%,
+        var(--gold-shine) 40%,
+        var(--gold) 60%,
+        var(--gold-shine) 80%,
+        var(--gold) 100%
+    ) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.ring1 {
+    top: -10px;
+    left: -13px;
+    width: 98%;
+    height: 98%;
+    transform: rotate(15deg);
+    animation: shine1 4s infinite linear;
+}
+
+.ring2 {
+    top: 5px;
+    left: -12px;
+    width: 101%;
+    height: 99%;
+    transform: rotate(-8deg);
+    animation: shine2 4s infinite linear;
+}
+
+.ring3 {
+    top: 2px;
+    left: 1px;
+    width: 97%;
+    height: 100%;
+    transform: rotate(5deg);
+    animation: shine3 4s infinite linear;
+}
+
+@keyframes shine1 {
+    0% { filter: brightness(1); }
+    25% { filter: brightness(1.2); }
+    50% { filter: brightness(1); }
+    75% { filter: brightness(1.1); }
+    100% { filter: brightness(1); }
+}
+
+@keyframes shine2 {
+    0% { filter: brightness(1.1); }
+    33% { filter: brightness(1); }
+    66% { filter: brightness(1.2); }
+    100% { filter: brightness(1.1); }
+}
+
+@keyframes shine3 {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.15); }
+    100% { filter: brightness(1); }
 }
 
 .logo {
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .logo h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+    font-family: 'Cinzel', serif;
+    font-size: 3.6rem;
+    margin: 0 0 0.3rem 0;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     color: var(--deep-blue);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .logo h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.85rem;  /* Reduced from 1rem */
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    line-height: 1.5;
     color: var(--deep-blue);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .logo h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    font-weight: 600;
+    font-size: 0.85rem;  /* Reduced from 1rem */
+    margin: 0.3rem 0 0 0;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     color: var(--deep-blue);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Event Details Styles */
 .event-details {
     display: flex;
     flex-direction: column;
-    gap: 1rem;  /* Slightly reduced from 1.2rem */
-    margin-top: 0;  /* Removed top margin */
+    gap: 1.5rem;
+    margin-top: 0;  /* Removed margin-top since we increased container gap */
 }
 
 .dates {
     font-family: 'Frank Ruhl Libre', serif;
+    margin: 1rem 0;  /* Added margin */
 }
 
 .dates p {
     margin: 0.5rem 0;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: var(--deep-blue);
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
-    font-weight: 800;
+    font-weight: 600;  /* Slightly reduced from 800 for elegance */
+    line-height: 1.4;  /* Added for better spacing */
+}
+
+/* New style for the year */
+.year {
+    font-size: 1.4rem !important;  /* Slightly smaller than the dates */
+    margin-top: 0.2rem !important;
+    opacity: 0.9;  /* Subtle distinction */
 }
 
 .hebrew-date {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     direction: rtl;
     color: var(--deep-blue);
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
-    font-weight: 800;
+    font-weight: 600;  /* Matched with English date */
+    margin-top: 0.8rem !important;  /* More space above Hebrew date */
 }
 
 .location {
-    font-size: 1.3rem;
+    font-size: 1.6rem;  /* Increased from 1.3rem */
     margin: 0.5rem 0;
     font-family: 'Frank Ruhl Libre', serif;
     color: var(--deep-blue);
@@ -138,7 +215,7 @@ body {
 
 .stay-tuned p {
     margin: 0.3rem 0;
-    font-size: 1.3rem;
+    font-size: 1.6rem;  /* Increased from 1.3rem */
     font-family: 'Frank Ruhl Libre', serif;
     color: var(--deep-blue);
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
@@ -146,7 +223,7 @@ body {
 }
 
 .follow-up {
-    font-size: 1.0rem !important;
+    font-size: 1.2rem !important;  /* Increased from 1.0rem */
     opacity: 1.0;
     font-weight: 600;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
@@ -170,7 +247,6 @@ body {
         ), url('moroccan_arch.jpg');
         background-size: 1000px ;  /* Set fixed size instead of percentage */
         background-position: center 100%;
-        background-attachment: fixed;
         overflow-y: hidden;
     }
 }
@@ -190,13 +266,13 @@ body {
     }
 
     .container {
-        gap: 0.8rem;  /* Reduced from 1.5rem */
-        padding: 2rem 1.5rem 1.5rem;  /* Reduced top padding */
+        gap: 3rem;  /* Proportionally reduced for tablets */
+        padding: 2rem 1.5rem 1.5rem;
     }
 
     .event-details {
-        gap: 0.6rem;  /* Reduced from 0.8rem */
-        margin-top: 0;
+        gap: 1.2rem;  /* Adjusted for mobile but still maintaining good spacing */
+        margin-top: 0.5rem;
     }
 
     .dates p {
@@ -213,13 +289,6 @@ body {
 
     .stay-tuned p {
         margin: 0.2rem 0;
-    }
-
-    body {
-        background-attachment: scroll;
-        -webkit-background-size: 1000px;
-        background-size: 1000px;
-        background-repeat: no-repeat;
     }
 }
 
@@ -238,12 +307,12 @@ body {
     }
 
     .container {
-        gap: 0.6rem;  /* Reduced from 1rem */
-        padding: 1.5rem 1rem 1rem;  /* Reduced top padding */
+        gap: 2.5rem;  /* Proportionally reduced for mobile */
+        padding: 1.5rem 1rem 1rem;
     }
 
     .event-details {
-        gap: 0.4rem;  /* Reduced from 0.6rem */
+        gap: 1rem;
     }
 }
 
@@ -260,71 +329,6 @@ body {
     }
 }
 
-/* All rings should use consistent positioning */
-.circle-border::before,
-.circle-border::after,
-.circle-border .content::before,
-.circle-border .content::after {
-    content: '';
-    position: absolute;
-    inset: 0;  /* This replaces top/right/bottom/left */
-    border-radius: 50%;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-}
-
-.circle-border::after {
-    transform: rotate(8deg) scale(1.02);
-    border: 5px solid transparent;
-    background: linear-gradient(var(--angle), 
-        rgba(212, 185, 130, 0.3),
-        rgba(255, 236, 196, 0.8),
-        rgba(212, 185, 130, 0.5),
-        rgba(255, 236, 196, 0.8),
-        rgba(212, 185, 130, 0.3)
-    ) border-box;
-    animation: rotate 12s linear infinite reverse;
-}
-
-.circle-border .content::before {
-    transform: rotate(-5deg) scale(0.98);
-    border: 7px solid transparent;
-    background: linear-gradient(var(--angle), 
-        rgba(212, 185, 130, 0.2),
-        rgba(255, 236, 196, 0.7),
-        rgba(212, 185, 130, 0.4),
-        rgba(255, 236, 196, 0.7),
-        rgba(212, 185, 130, 0.2)
-    ) border-box;
-    animation: rotate 10s linear infinite;
-}
-
-.circle-border .content::after {
-    transform: rotate(15deg) scale(0.96);
-    border: 2px solid transparent;
-    background: linear-gradient(var(--angle), 
-        rgba(212, 185, 130, 0.1),
-        rgba(255, 236, 196, 0.5),
-        rgba(212, 185, 130, 0.3),
-        rgba(255, 236, 196, 0.5),
-        rgba(212, 185, 130, 0.1)
-    ) border-box;
-    animation: rotate 15s linear infinite reverse;
-}
-
-/* Additional inner decorative rings using box-shadow */
-.circle-border .content {
-    &::before {
-        box-shadow: 
-            /* Subtle inner glow */
-            inset 0 0 0 1.5px rgba(212, 185, 130, 0.3),
-            /* Additional ring */
-            inset 0 0 0 3px rgba(212, 185, 130, 0.2);
-    }
-}
 
 /* Ensure content stays above rings */
 .content {
@@ -336,10 +340,10 @@ body {
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;  /* Changed from space-between */
     align-items: center;
     z-index: 2;
-    padding: 3rem 2rem;
+    padding: 2rem;  /* Reduced from 3rem */
     box-sizing: border-box;
 }
 
@@ -367,3 +371,4 @@ body {
         transform: scale(0.9);
     }
 } 
+
