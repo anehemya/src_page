@@ -53,18 +53,13 @@
 
     .dates p {
         font-size: 1.5rem;
-        margin: 0;  /* Remove all margins */
-        line-height: 1.3;  /* Control line spacing */
-    }
-
-    .year {
-        font-size: 1.5rem !important;
-        margin: 0 !important;  /* Remove margins */
+        margin: 0;
+        line-height: 1.3;
     }
 
     .hebrew-date {
         font-size: 1.2rem;
-        margin: 0.2rem 0 !important;  /* Minimal margin */
+        margin: 0.2rem 0 !important;
     }
 
     .location {
@@ -100,14 +95,64 @@
 
     /* Landscape mode adjustments */
     @media screen and (orientation: landscape) {
+        body {
+            overflow-y: auto;
+            height: auto;
+        }
+
+        .content {
+            height: auto;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;  /* Keep content vertically centered */
+            justify-content: center;
+        }
+
         .container {
-            gap: 6rem;  /* Match the main mobile gap */
-            margin-top: 0;
+            gap: 3rem;
+            margin: 0;  /* Remove any margins */
+            padding: 2rem 0;  /* Add padding to ensure logo isn't cut off */
+            position: relative;  /* Ensure proper positioning */
+            transform: none;  /* Remove any transforms that might affect positioning */
         }
         
         .logo-container {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
+            margin-top: 0;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;  /* Slightly smaller text */
+        }
+
+        .logo h2 {
+            font-size: 0.5rem;
+        }
+
+        .logo h3 {
+            font-size: 0.5rem;
+        }
+
+        .dates p {
+            font-size: 1.2rem;
+        }
+
+        .hebrew-date {
+            font-size: 1rem;
+        }
+
+        .location {
+            font-size: 1rem;
+        }
+
+        .stay-tuned p {
+            font-size: 1rem;
+        }
+
+        .follow-up {
+            font-size: 0.9rem !important;
         }
     }
 } 
