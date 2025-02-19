@@ -17,9 +17,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2.5rem;  /* Reduced from 3rem to bring everything closer together */
+        gap: 6rem;  /* Increased from 3.5rem to create more space */
         padding: 0;
-        margin-top: -2rem;  /* Pull everything up slightly */
+        margin-top: -2rem;  /* Controls overall vertical position */
     }
 
     .logo-container {
@@ -29,6 +29,9 @@
 
     .event-details {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;  /* Add small consistent spacing between sections */
     }
 
     .logo h1 {
@@ -48,43 +51,44 @@
     }
 
     .dates p {
-        font-size: 1.2rem;
-        margin: 0.3rem 0;
+        font-size: 1.5rem;
+        margin: 0;  /* Remove all margins */
+        line-height: 1.3;  /* Control line spacing */
     }
 
     .year {
-        font-size: 1.1rem !important;
-        margin-top: 0.2rem !important;
+        font-size: 1.5rem !important;
+        margin: 0 !important;  /* Remove margins */
     }
 
     .hebrew-date {
         font-size: 1.2rem;
-        margin-top: 0.5rem !important;
-        margin-bottom: 0 !important;  /* Remove bottom margin completely */
+        margin: 0.2rem 0 !important;  /* Minimal margin */
     }
 
     .location {
         font-size: 1.2rem;
-        margin: 0.1rem 0;  /* Minimal margin */
+        margin: 0;  /* Remove margins */
     }
 
     .stay-tuned {
-        margin-top: 0.1rem;  /* Minimal margin */
+        margin: 0;  /* Remove margins */
     }
 
     .stay-tuned p {
         font-size: 1.2rem;
+        margin: 0;  /* Remove margins */
     }
 
     .follow-up {
         font-size: 1rem !important;
-        margin-top: 0.1rem !important;  /* Reduced from 0.3rem */
+        margin: 0 !important;  /* Remove margins */
     }
 
     /* Specific adjustments for very small screens */
     @media screen and (max-width: 360px) {
         .container {
-            gap: 2rem;
+            gap: 6rem;  /* Match the main mobile gap */
         }
         
         .logo-container {
@@ -96,7 +100,7 @@
     /* Landscape mode adjustments */
     @media screen and (orientation: landscape) {
         .container {
-            gap: 2rem;
+            gap: 6rem;  /* Match the main mobile gap */
             margin-top: 0;
         }
         
