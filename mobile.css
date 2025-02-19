@@ -19,12 +19,13 @@
         align-items: center;
         gap: 6rem;  /* Increased from 3.5rem to create more space */
         padding: 0;
-        margin-top: -2rem;  /* Controls overall vertical position */
+        margin-top: 0rem;  /* Changed from -1rem to 0rem to move logo further down */
     }
 
     .logo-container {
         width: 180px;     /* Slightly smaller */
         height: 180px;
+        margin-top: 2rem;  /* Added to move just the logo down */
     }
 
     .event-details {
