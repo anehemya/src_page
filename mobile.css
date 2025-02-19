@@ -1,0 +1,105 @@
+@media screen and (max-width: 768px) {
+    body {
+        overflow-y: hidden;  /* Prevent scrolling */
+        height: 100vh;      /* Full viewport height */
+    }
+
+    .content {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .container {
+        transform: scale(1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;  /* Reduced from 3rem to bring everything closer together */
+        padding: 0;
+        margin-top: -2rem;  /* Pull everything up slightly */
+    }
+
+    .logo-container {
+        width: 180px;     /* Slightly smaller */
+        height: 180px;
+    }
+
+    .event-details {
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 2.6rem;  /* Reduced from 3rem */
+        margin-bottom: 0.2rem;  /* Add a bit of space below SRC */
+    }
+
+    .logo h2 {
+        font-size: 0.8rem;
+    }
+
+    .logo h3 {
+        font-size: 0.8rem;
+    }
+
+    .dates p {
+        font-size: 1.2rem;
+        margin: 0.3rem 0;
+    }
+
+    .year {
+        font-size: 1.1rem !important;
+        margin-top: 0.2rem !important;
+    }
+
+    .hebrew-date {
+        font-size: 1.2rem;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0 !important;  /* Remove bottom margin completely */
+    }
+
+    .location {
+        font-size: 1.2rem;
+        margin: 0.1rem 0;  /* Minimal margin */
+    }
+
+    .stay-tuned {
+        margin-top: 0.1rem;  /* Minimal margin */
+    }
+
+    .stay-tuned p {
+        font-size: 1.2rem;
+    }
+
+    .follow-up {
+        font-size: 1rem !important;
+        margin-top: 0.1rem !important;  /* Reduced from 0.3rem */
+    }
+
+    /* Specific adjustments for very small screens */
+    @media screen and (max-width: 360px) {
+        .container {
+            gap: 2rem;
+        }
+        
+        .logo-container {
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    /* Landscape mode adjustments */
+    @media screen and (orientation: landscape) {
+        .container {
+            gap: 2rem;
+            margin-top: 0;
+        }
+        
+        .logo-container {
+            width: 150px;
+            height: 150px;
+        }
+    }
+} 
