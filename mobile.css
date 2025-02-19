@@ -25,14 +25,15 @@
     .logo-container {
         width: 180px;     /* Slightly smaller */
         height: 180px;
-        margin-top: 2rem;  /* Added to move just the logo down */
+        margin-top: 3rem;  /* Added to move just the logo down */
     }
 
     .event-details {
         text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;  /* Add small consistent spacing between sections */
+        gap: 0.5rem; 
+        margin-top: -2rem; 
     }
 
     .logo h1 {
