@@ -32,16 +32,19 @@
     }
 
     .logo h1 {
-        font-size: 2.6rem;  /* Reduced from 3rem */
-        margin-bottom: 0.2rem;  /* Add a bit of space below SRC */
+        font-size: 2.2rem;
+        margin-bottom: 0.2rem;
     }
 
     .logo h2 {
-        font-size: 0.8rem;
+        font-size: 0.6rem;  /* Reduced from 0.7rem */
+        letter-spacing: 0.12em;  /* Added to maintain readability */
+        line-height: 1.4;  /* Added to improve spacing between lines */
     }
 
     .logo h3 {
-        font-size: 0.8rem;
+        font-size: 0.6rem;  /* Reduced from 0.7rem */
+        margin-top: 0.2rem;  /* Added to maintain spacing */
     }
 
     .dates p {
