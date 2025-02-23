@@ -39,127 +39,15 @@ body {
 /* Logo Styles */
 .logo-container {
     position: relative;
-    width: 240px;  /* Reduced from 300px */
-    height: 240px;  /* Reduced from 300px */
+    width: 380px;  /* Increased from 320px */
+    height: 380px;  /* Increased from 320px */
     margin: 0 auto;
 }
 
-.circle-border {
-    position: relative;
+.logo-image {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rings {
-    position: absolute;
-    width: 100%;    /* Increased from 90% */
-    height: 100%;   /* Increased from 90% */
-    left: 0;        /* Changed from 5% */
-    top: 0;         /* Changed from 5% */
-}
-
-.ring {
-    position: absolute;
-    border: 4px solid transparent;  /* Slightly thinner border for elegance */
-    border-radius: 50%;
-    opacity: 1;
-    background: linear-gradient(
-        45deg,
-        var(--gold-shine) 0%,
-        var(--gold) 20%,
-        var(--gold-shine) 40%,
-        var(--gold) 60%,
-        var(--gold-shine) 80%,
-        var(--gold) 100%
-    ) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-}
-
-.ring1 {
-    top: -25px;     /* Adjusted positioning */
-    left: -30px;
-    width: 110%;    /* Made rings larger */
-    height: 110%;
-    transform: rotate(15deg);
-    animation: shine1 4s infinite linear;
-}
-
-.ring2 {
-    top: -10px;     /* Adjusted positioning */
-    left: -25px;
-    width: 108%;    /* Made rings larger */
-    height: 108%;
-    transform: rotate(-8deg);
-    animation: shine2 4s infinite linear;
-}
-
-.ring3 {
-    top: -8px;     /* Adjusted positioning */
-    left: -8px;
-    width: 106%;    /* Made rings larger */
-    height: 106%;
-    transform: rotate(5deg);
-    animation: shine3 4s infinite linear;
-}
-
-@keyframes shine1 {
-    0% { filter: brightness(1); }
-    25% { filter: brightness(1.2); }
-    50% { filter: brightness(1); }
-    75% { filter: brightness(1.1); }
-    100% { filter: brightness(1); }
-}
-
-@keyframes shine2 {
-    0% { filter: brightness(1.1); }
-    33% { filter: brightness(1); }
-    66% { filter: brightness(1.2); }
-    100% { filter: brightness(1.1); }
-}
-
-@keyframes shine3 {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.15); }
-    100% { filter: brightness(1); }
-}
-
-.logo {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.logo h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 3.6rem;
-    margin: 0 0 0.3rem 0;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--deep-blue);
-}
-
-.logo h2 {
-    font-size: 0.85rem;  /* Reduced from 1rem */
-    margin: 0;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    line-height: 1.5;
-    color: var(--deep-blue);
-}
-
-.logo h3 {
-    font-size: 0.85rem;  /* Reduced from 1rem */
-    margin: 0.3rem 0 0 0;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--deep-blue);
+    object-fit: contain;
 }
 
 /* Event Details Styles */
