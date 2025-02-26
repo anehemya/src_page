@@ -23,8 +23,8 @@
     }
 
     .logo-container {
-        width: 280px;     /* Increased from 240px */
-        height: 280px;    /* Increased from 240px */
+        width: 240px;     /* Decreased from 280px */
+        height: 240px;    /* Decreased from 280px */
         margin-top: 0rem;
     }
 
@@ -43,9 +43,10 @@
     }
 
     .dates p {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin: 0;
         line-height: 1.3;
+        white-space: nowrap; /* Keep text on one line */
     }
 
     .hebrew-date {
@@ -56,6 +57,7 @@
     .location {
         font-size: 1.2rem;
         margin: 0;  /* Remove margins */
+        font-weight: normal;  /* Remove bold */
     }
 
     .stay-tuned {
@@ -79,8 +81,11 @@
         }
         
         .logo-container {
-            width: 240px;  /* Increased from 200px */
-            height: 240px;  /* Increased from 200px */
+            width: 200px;  /* Decreased from 240px */
+            height: 200px;  /* Decreased from 240px */
+        }
+        .dates p {
+            font-size: 1rem; /* Slightly smaller font for very small screens */
         }
     }
 
@@ -109,8 +114,8 @@
         }
         
         .logo-container {
-            width: 200px;  /* Increased from 160px */
-            height: 200px;  /* Increased from 160px */
+            width: 180px;  /* Decreased from 200px */
+            height: 180px;  /* Decreased from 200px */
             margin-top: 0;
         }
 
@@ -124,6 +129,7 @@
 
         .location {
             font-size: 1rem;
+            font-weight: normal;  /* Remove bold */
         }
 
         .stay-tuned p {
